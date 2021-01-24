@@ -1,7 +1,8 @@
 package com.learn.example.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.learn.example.entity.CateTree;
+import com.learn.example.entity.CateTreeHasChild;
+import com.learn.example.service.impl.CateTreeHasChildServiceImpl;
 import com.learn.example.service.impl.CateTreeServiceImpl;
 import com.learn.example.util.TreeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,21 @@ import java.util.Map;
 public class CateTreeController {
     @Autowired
     CateTreeServiceImpl cateTreeService;
+
+    @Autowired
+    CateTreeHasChildServiceImpl cateTreeHasChildService;
+
+    @GetMapping("myTree")
+    public List<CateTreeHasChild> myTree() {
+        List<CateTreeHasChild> cateList = cateTreeHasChildService.findAll();
+
+        List<CateTreeHasChild> cateTreeHasChildren = TreeUtil.buildMenuTree(cateList, "0");
+        System.out.println(cateList);
+        System.out.println(cateTreeHasChildren);
+
+        return cateTreeHasChildren;
+    }
+
 
     @GetMapping("findAll")
     public List<Map<String, Object>> findAll() {

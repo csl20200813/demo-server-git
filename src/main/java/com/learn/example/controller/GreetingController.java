@@ -1,6 +1,7 @@
 package com.learn.example.controller;
 
 import com.learn.example.runnable.GreetingRunnable;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import javax.annotation.Resource;
 @Controller
 @ResponseBody
 @CrossOrigin
+@Slf4j
 public class GreetingController {
 
 
@@ -22,6 +24,7 @@ public class GreetingController {
 
     @GetMapping("triggerWebsocket")
     public boolean triggerWebsocket() throws InterruptedException {
+        log.info("lombok的打印触发了");
         Runnable runnable = new GreetingRunnable(simpMessagingTemplate);
         Thread thread = new Thread(runnable);
         thread.start();

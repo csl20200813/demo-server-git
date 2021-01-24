@@ -2,13 +2,73 @@ package com.learn.example.util;
 
 
 import com.learn.example.entity.CateTree;
+import com.learn.example.entity.CateTreeHasChild;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author csl
+ */
 public class TreeUtil {
+
+    public static List<CateTreeHasChild> buildMenuTree(List<CateTreeHasChild> srcList, String pid) {
+        List<CateTreeHasChild> treeList = new ArrayList<>();
+        srcList.forEach(item -> {
+//            if (StringUtils.equals(pid, item.getParentId())) {
+            if (item.getPid().equals(pid)) {
+                item.setChildren(buildMenuTree(srcList, item.getCid()));
+                treeList.add(item);
+            }
+        });
+        return treeList;
+    }
+
+
+    public static List<Map<String, Object>> myTreeLearn(List<Map<String, Object>> resultList, List<Map<String, Object>> srcList) {
+        //list转树，"0"为根节点
+
+        for (Map map : srcList) {
+            if (map.get("pid").equals("0")) {
+                //等于0 ，往数组里面存放
+                resultList.add(map);
+            } else {
+                //不等于0，还不能存，先造数据
+                //找到他的儿子
+                for (Map<String, Object> stringObjectMap : srcList) {
+                    if (stringObjectMap.get("pid").equals(map.get("cid"))) {
+                        map.put("children", stringObjectMap);
+                    }
+                }
+                myTreeLearn(resultList, srcList);
+            }
+        }
+
+        return resultList;
+    }
+
+
+    /**
+     * 传入一个id，找到整个目录树
+     * pid = 0 为出口
+     *
+     * @param cateTree
+     * @param cateTreeList
+     * @return
+     */
+    public static void treeFindParent(List<String> resultList, CateTree cateTree, List<CateTree> cateTreeList) {
+        for (CateTree tree : cateTreeList) {
+            if (tree.getCid().equals(cateTree.getPid())) {
+                resultList.add(tree.getCateName());
+                if (!cateTree.getCid().equals("0")) {
+                    treeFindParent(resultList, tree, cateTreeList);
+                }
+            }
+        }
+    }
+
 
     //递归tree树
     public static List<Map<String, Object>> doTreeList(List<Map<String, Object>> dataList, String pid) {
