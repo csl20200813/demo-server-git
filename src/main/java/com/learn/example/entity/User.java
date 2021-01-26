@@ -2,6 +2,8 @@ package com.learn.example.entity;
 
 import com.learn.example.exception.GenderException;
 
+import java.util.Objects;
+
 public class User implements Comparable<User> {
     String username;
     String passwd;
@@ -29,6 +31,28 @@ public class User implements Comparable<User> {
         this.age = age;
         this.salary = salary;
         this.sex = sex;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        User user = (User) o;
+        return Objects.equals(username, user.username) &&
+                Objects.equals(passwd, user.passwd) &&
+                Objects.equals(age, user.age) &&
+                Objects.equals(salary, user.salary) &&
+                Objects.equals(sex, user.sex);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, passwd, age, salary, sex);
     }
 
     @Override

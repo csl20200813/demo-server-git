@@ -1,4 +1,4 @@
-package com.learn.example.demo;
+package com.learn.example.demo.java8_new;
 
 public class LambdaTest {
 

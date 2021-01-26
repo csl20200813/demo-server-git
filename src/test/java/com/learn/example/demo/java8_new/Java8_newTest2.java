@@ -1,4 +1,4 @@
-package com.learn.example.demo;
+package com.learn.example.demo.java8_new;
 
 import com.learn.example.predicates.CalNum;
 import org.junit.jupiter.api.Test;
@@ -89,5 +89,23 @@ public class Java8_newTest2 {
     public Integer operation(Integer n, CalNum<Integer> calNum) {
         return calNum.getVal(n);
     }
+
+
+    /**
+     * 函数式接口，
+     * 字符串转大写
+     */
+    @Test
+    void test6() {
+
+        String s = stringToUpperCase("hello", x -> x.toUpperCase());
+        System.out.println(s);
+
+    }
+
+    public String stringToUpperCase(String n, CalNum<String> calNum) {
+        return calNum.getVal(n);
+    }
+
 
 }
