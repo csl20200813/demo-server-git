@@ -1,5 +1,9 @@
 package com.learn.example.predicates;
 
+/**
+ * @author csl
+ */
+@FunctionalInterface
 public interface MyPredicate<T> {
-    public boolean test(T t);
+    boolean test(T t);
 }
