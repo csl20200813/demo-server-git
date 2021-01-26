@@ -3,7 +3,7 @@ package com.learn.example.demo;
 import com.learn.example.util.FactorialUtil;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
+import java.io.*;
 
 /**
  * @author: csl
@@ -19,7 +19,20 @@ public class FactorialTest {
      */
     @Test
     public void factorial() {
+
         System.out.println(FactorialUtil.factorial(2));
+    }
+
+    @Test
+    public void factorial1() {
+        try {
+            Process exec = Runtime.getRuntime().exec("netstat -nao");
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(exec.getErrorStream()));
+            String s = bufferedReader.readLine();
+            System.out.println(s);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
