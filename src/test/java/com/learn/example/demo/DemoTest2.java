@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.learn.example.entity.User;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DemoTest2 {
 
@@ -31,4 +28,26 @@ public class DemoTest2 {
         System.out.println(map.get("key1"));
         System.out.println(map.get("key2"));
     }
+
+    @Test
+    void fsdfsd() {
+        Comparator<Integer> com = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return Integer.compare(o1, o2);
+            }
+        };
+
+        TreeSet<Integer> ts = new TreeSet<>(com);
+    }
+
+    @Test
+    void fsfdsfdfsd() {
+        Comparator<Integer> com = (x, y) -> Integer.compare(x, y);
+//        Integer::compare
+
+        TreeSet<Integer> ts = new TreeSet<>(com);
+    }
+
+
 }

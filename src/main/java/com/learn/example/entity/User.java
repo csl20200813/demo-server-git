@@ -6,14 +6,29 @@ public class User implements Comparable<User> {
     String username;
     String passwd;
     Integer age;
+    Integer salary;
     private String sex;
+
+    public User() {
+    }
+
+    public User(String username, Integer age, Integer salary) {
+        this.username = username;
+        this.age = age;
+        this.salary = salary;
+    }
 
     public User(String username, Integer age) {
         this.username = username;
         this.age = age;
     }
 
-    public User() {
+    public User(String username, String passwd, Integer age, Integer salary, String sex) {
+        this.username = username;
+        this.passwd = passwd;
+        this.age = age;
+        this.salary = salary;
+        this.sex = sex;
     }
 
     @Override
@@ -22,8 +37,17 @@ public class User implements Comparable<User> {
                 "username='" + username + '\'' +
                 ", passwd='" + passwd + '\'' +
                 ", age=" + age +
+                ", salary=" + salary +
                 ", sex='" + sex + '\'' +
                 '}';
+    }
+
+    public Integer getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Integer salary) {
+        this.salary = salary;
     }
 
     public String getUsername() {

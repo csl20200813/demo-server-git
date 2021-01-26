@@ -11,6 +11,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "cate_tree")
 public class CateTree {
+
+
     @Column(name = "cate_name")
     private String cateName;
     @Id
@@ -25,9 +27,7 @@ public class CateTree {
     @Column(name = "modify_time")
     private Long modifyTime;
 
-
-
-
+ 
     @Override
     public String toString() {
         return "CateTree{" +
@@ -37,6 +37,8 @@ public class CateTree {
                 ", modifyTime=" + modifyTime +
                 '}';
     }
+
+
     public String getCateName() {
         return cateName;
     }
@@ -68,6 +70,8 @@ public class CateTree {
     public void setModifyTime(Long modifyTime) {
         this.modifyTime = modifyTime;
     }
+
+
 }
 
 
