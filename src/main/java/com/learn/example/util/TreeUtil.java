@@ -27,6 +27,12 @@ public class TreeUtil {
     }
 
 
+    /**
+     * 这个方法栈溢出了
+     * @param resultList
+     * @param srcList
+     * @return
+     */
     public static List<Map<String, Object>> myTreeLearn(List<Map<String, Object>> resultList, List<Map<String, Object>> srcList) {
         //list转树，"0"为根节点
 
