@@ -10,6 +10,47 @@ public class User implements Comparable<User> {
     Integer age;
     Integer salary;
     private String sex;
+    private Status status;
+
+    public enum Status {
+        FREE, BUSY, VOCATION
+    }
+
+    public User(String username, Integer age, Integer salary, Status status) {
+        this.username = username;
+        this.age = age;
+        this.salary = salary;
+        this.status = status;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public User(String username, String passwd, Integer age, Integer salary, String sex, Status status) {
+        this.username = username;
+        this.passwd = passwd;
+        this.age = age;
+        this.salary = salary;
+        this.sex = sex;
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", passwd='" + passwd + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                ", sex='" + sex + '\'' +
+                ", status=" + status +
+                '}';
+    }
 
     public User() {
     }
@@ -53,17 +94,6 @@ public class User implements Comparable<User> {
     @Override
     public int hashCode() {
         return Objects.hash(username, passwd, age, salary, sex);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", passwd='" + passwd + '\'' +
-                ", age=" + age +
-                ", salary=" + salary +
-                ", sex='" + sex + '\'' +
-                '}';
     }
 
     public Integer getSalary() {
