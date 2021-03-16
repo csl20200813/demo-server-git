@@ -26,6 +26,10 @@ public class CateTreeController {
     @Autowired
     CateTreeHasChildServiceImpl cateTreeHasChildService;
 
+    public void say111() {
+        System.out.println("11111");
+    }
+
     @GetMapping("myTree")
     public List<CateTreeHasChild> myTree() {
         List<CateTreeHasChild> cateList = cateTreeHasChildService.findAll();

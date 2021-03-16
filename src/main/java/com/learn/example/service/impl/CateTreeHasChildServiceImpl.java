@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.locks.ReentrantLock;
 
 @Service
 public class CateTreeHasChildServiceImpl {
@@ -21,6 +22,10 @@ public class CateTreeHasChildServiceImpl {
     }
 
     public CateTreeHasChild findById(String cid) {
+
+
+
+
         CateTreeHasChild cateTree = new CateTreeHasChild();
         Optional<CateTreeHasChild> byId = cateTreeHasChildDao.findById(cid);
         if (byId.isPresent()) {

@@ -52,9 +52,17 @@ public class Java8_newTest1 {
             System.out.println(user);
         }
     }
+
     /**
      * ---------------------------------------------------------------------------------------------------
      */
+
+
+    @Test
+    void fdsfsdf() {
+        System.out.println(3 * 0.1);
+        System.out.println(3 * 0.1 == 0.3);
+    }
 
     /**
      * 优化方式2

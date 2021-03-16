@@ -2,6 +2,7 @@ package com.learn.example.demo;
 
 import com.alibaba.fastjson.JSON;
 import com.learn.example.entity.User;
+import com.learn.example.service.impl.MySun;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -50,4 +51,9 @@ public class DemoTest2 {
     }
 
 
+    @Test
+    void sdfsd() {
+        MySun mySun = new MySun();
+        mySun.sunSay();
+    }
 }

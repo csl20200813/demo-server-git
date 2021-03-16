@@ -61,8 +61,8 @@ public class TestStreamApi1 {
 
         Stream<Integer> stream = list.stream();
         //   stream.forEach(System.out::println);   下面的和这句话等同，方法引用
-        stream.forEach(System.out::println);
-
+//        stream.forEach(System.out::println);
+        stream.forEach(x -> System.out.println(x));
     }
 
 
@@ -93,6 +93,27 @@ public class TestStreamApi1 {
         userList.stream()
                 .map(user -> user.getUsername() + " -- " + user.getSalary())
                 .forEach(x -> System.out.println(x));
+    }
+
+
+    @Test
+    void testfsdf5() {
+        List<String> list = Arrays.asList("aaa", "bbb", "ccc");
+        Stream<String> stringStream = list.stream()
+                .map(x -> x.toUpperCase());
+//        stringStream.
+
+//        System.out.println(collect);
+
+
+        List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5, 5, 6);
+
+        List<Integer> list2 = list1.stream()
+                .map(x -> x * 2)
+                .filter(y -> y > 5)
+                .collect(Collectors.toList());
+        System.out.println(list2);
+
     }
 
 

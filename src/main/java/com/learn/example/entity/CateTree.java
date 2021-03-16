@@ -13,6 +13,16 @@ import javax.persistence.*;
 public class CateTree {
 
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
     @Column(name = "cate_name")
     private String cateName;
     @Id

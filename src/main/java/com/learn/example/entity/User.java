@@ -16,6 +16,11 @@ public class User implements Comparable<User> {
         FREE, BUSY, VOCATION
     }
 
+    public User(String username, String passwd) {
+        this.username = username;
+        this.passwd = passwd;
+    }
+
     public User(String username, Integer age, Integer salary, Status status) {
         this.username = username;
         this.age = age;
@@ -76,24 +81,22 @@ public class User implements Comparable<User> {
 
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        User user = (User) o;
-        return Objects.equals(username, user.username) &&
-                Objects.equals(passwd, user.passwd) &&
-                Objects.equals(age, user.age) &&
-                Objects.equals(salary, user.salary) &&
-                Objects.equals(sex, user.sex);
+    public int hashCode() {
+        return 1 * username.hashCode() + 2 * passwd.hashCode();
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(username, passwd, age, salary, sex);
+    public boolean equals(Object o) {
+        //自反性
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof User)) {
+            return false;
+        }
+        User user = (User) o;
+        return Objects.equals(username, user.username);
+
     }
 
     public Integer getSalary() {
