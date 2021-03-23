@@ -18,7 +18,7 @@ public interface UserMapper extends BaseMapper<User> {
      * 查
      * @return
      */
-    List<UserVo> testMybatis();
+    List<UserVo> findAllUserUseSql();
 
     /**
      * 修改

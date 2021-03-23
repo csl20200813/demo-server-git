@@ -17,25 +17,34 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    /**
+     * 通过mybatis-plus查所有的用户
+     *
+     * @return
+     */
     @GetMapping("list")
     public List<User> list() {
-//        return userService.list();
-        return null;
+        return userService.list();
+    }
+
+    /**
+     * 通过mybatis的sql语句查询所有的用户
+     *
+     * @return List<UserVo>
+     */
+    @GetMapping("findAllUserUseSql")
+    public List<UserVo> findAllUserUseSql() {
+        return userService.findAllUserUseSql();
     }
 
     @PostMapping("save")
     public void save(@RequestBody User user) {
-//        userService.save(user);
+        userService.save(user);
     }
 
-
-    @GetMapping("testMybatis")
-    public List<UserVo> testMybatis() {
-        return userService.testMybatis();
-    }
 
     @PostMapping("/testUpdate")
-    public void testUpdate(@RequestBody UserVo userVo){
+    public void testUpdate(@RequestBody UserVo userVo) {
         userService.testUpdate(userVo);
     }
 }

@@ -15,7 +15,7 @@ public interface UserService extends IService<User> {
 
      void saveUser(User u);
 
-     List<UserVo> testMybatis();
+     List<UserVo> findAllUserUseSql();
 
      void testUpdate(UserVo userVo);
 

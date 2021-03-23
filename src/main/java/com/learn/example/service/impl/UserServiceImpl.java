@@ -27,9 +27,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public  List<UserVo> testMybatis() {
+    public  List<UserVo> findAllUserUseSql() {
         //List<User> users = baseMapper.selectList(null);
-        List<UserVo> userVos = userMapper.testMybatis();
+        List<UserVo> userVos = userMapper.findAllUserUseSql();
         System.out.println(userVos);
         return userVos;
     }
