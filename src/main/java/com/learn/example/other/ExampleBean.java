@@ -1,4 +1,4 @@
-package com.learn.example.demo;
+package com.learn.example.other;
 
 import org.springframework.beans.factory.InitializingBean;
 

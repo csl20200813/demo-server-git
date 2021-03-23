@@ -1,15 +1,10 @@
 package com.learn.example.controller;
 
-import com.learn.example.runnable.ScheduledMyTestRunnable;
-import com.learn.example.util.GetSpringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.learn.example.thread.ScheduledMyTestRunnable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Primary;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.scheduling.support.CronTrigger;
-import org.springframework.scheduling.support.ScheduledMethodRunnable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -1,4 +1,4 @@
-package com.learn.example.demo;
+package com.learn.example.other;
 
 public class JoinDemo extends Thread {
     int i;

@@ -1,6 +1,6 @@
 package com.learn.example.controller;
 
-import com.learn.example.runnable.GreetingRunnable;
+import com.learn.example.thread.GreetingRunnable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;

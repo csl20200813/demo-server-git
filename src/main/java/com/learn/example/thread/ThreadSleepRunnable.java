@@ -1,4 +1,4 @@
-package com.learn.example.runnable;
+package com.learn.example.thread;
 
 public class ThreadSleepRunnable implements Runnable {
     @Override

@@ -1,4 +1,4 @@
-package com.learn.example.runnable;
+package com.learn.example.thread;
 
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 

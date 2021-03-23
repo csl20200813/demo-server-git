@@ -1,7 +1,5 @@
 package com.learn.example.other;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 
 /**
  * @author: csl
