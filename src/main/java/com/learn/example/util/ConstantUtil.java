@@ -1,5 +1,6 @@
 package com.learn.example.util;
 
+
 import com.learn.example.entity.User;
 
 import java.util.concurrent.LinkedBlockingQueue;

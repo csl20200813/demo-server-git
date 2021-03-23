@@ -1,5 +1,6 @@
 package com.learn.example.predicates.impl;
 
+
 import com.learn.example.entity.User;
 import com.learn.example.predicates.MyPredicate;
 
@@ -12,6 +13,7 @@ import com.learn.example.predicates.MyPredicate;
 public class FilterUserByAgeImpl implements MyPredicate<User> {
     @Override
     public boolean test(User user) {
-        return user.getAge() >= 35;
+//        return user.getAge() >= 35;
+        return false;
     }
 }

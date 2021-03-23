@@ -18,7 +18,7 @@ public class ChunkFileController {
     ChunkFileServiceImpl chunkFileService;
 
     /**
-     * 处理文件上传POST请求 1
+     * 处理文件上传POST请求
      * 将上传的文件存放到服务器内
      *
      * @param chunk    文件块

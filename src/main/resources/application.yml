@@ -2,14 +2,11 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: 'jdbc:mysql://localhost:3306/online-teach?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=true'
+    url: 'jdbc:mysql://localhost:3306/demo-test?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=true'
     username: 'root'
     password: 'root'
     driverClassName: 'com.mysql.cj.jdbc.Driver'
-  jpa:
-    database: MYSQL
-    show-sql: false # Show or not log for each sql query
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
 #  main:
 #    allow-bean-definition-overriding: true
 server:
@@ -18,4 +15,9 @@ server:
 #  mapper-locations: classpath:/mapper/**/*.xml
 mybatis:
   mapper-locations: classpath:/mapper/**/*.xml
+myargs:
+  thread:
+    core-size: 20
+    max-size: 200
+    keep-alive-time: 10
 

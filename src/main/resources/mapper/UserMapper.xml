@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.learn.example.mapper.UserMapper">
+    <resultMap id="BaseUserResultMap" type="com.example.demo.entity.vo.UserVo">
+        <id column="id" property="id"></id>
+        <result column="username" property="username"></result>
+        <result column="password" property="password"></result>
+        <result column="live_in" property="liveIn"></result>
+        <result column="age" property="age"></result>
+        <result column="gender" property="gender"></result>
+        <result column="height" property="height"></result>
+        <result column="birthday" property="birthday"></result>
+    </resultMap>
+
+    <sql id="Blob_Column_List">
+        id
+        , username, password, live_in, age, gender, height, birthday
+    </sql>
+
+    <select id="testMybatis" resultMap="BaseUserResultMap">
+        select
+        <include refid="Blob_Column_List"></include>
+        from user
+    </select>
+
+    <update id="testUpdate" parameterType="com.example.demo.entity.vo.UserVo">
+        update user
+        <set>
+            <if test="username != null and username != '' ">
+                username = #{username}
+            </if>
+            <if test="password != null and password != '' ">
+                password = #{password}
+            </if>
+            <if test="liveIn != null and liveIn != '' ">
+                live_in = #{liveIn}
+            </if>
+            <if test="age != null and age != '' ">
+                age = #{age}
+            </if>
+            <if test="gender != null and gender != '' ">
+                gender = #{gender}
+            </if>
+            <if test="height != null and height != '' ">
+                height = #{height}
+            </if>
+            <if test="birthday != null and birthday != '' ">
+                birthday = #{birthday}
+            </if>
+        </set>
+        where id= #{id}
+    </update>
+
+</mapper>

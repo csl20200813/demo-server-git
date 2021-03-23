@@ -1,4 +1,4 @@
-package com.learn.example.service;
+package com.learn.example.service.impl;
 
 import org.springframework.stereotype.Service;
 

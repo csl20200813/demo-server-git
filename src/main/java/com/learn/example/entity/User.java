@@ -1,12 +1,16 @@
 package com.learn.example.entity;
 
-import com.learn.example.exception.GenderException;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 
-import java.util.Objects;
+import java.beans.Transient;
 
+@TableName("user")
 public class User implements Comparable<User> {
-    String username;
-    String passwd;
+    private String username;
+
+    private String password;
+
     Integer age;
     Integer salary;
     private String sex;
@@ -14,18 +18,6 @@ public class User implements Comparable<User> {
 
     public enum Status {
         FREE, BUSY, VOCATION
-    }
-
-    public User(String username, String passwd) {
-        this.username = username;
-        this.passwd = passwd;
-    }
-
-    public User(String username, Integer age, Integer salary, Status status) {
-        this.username = username;
-        this.age = age;
-        this.salary = salary;
-        this.status = status;
     }
 
     public Status getStatus() {
@@ -36,25 +28,25 @@ public class User implements Comparable<User> {
         this.status = status;
     }
 
+    public User(String username, String passwd) {
+        this.username = username;
+        this.password = passwd;
+    }
+
+    public User(String username, Integer age, Integer salary, Status status) {
+        this.username = username;
+        this.age = age;
+        this.salary = salary;
+        this.status = status;
+    }
+
     public User(String username, String passwd, Integer age, Integer salary, String sex, Status status) {
         this.username = username;
-        this.passwd = passwd;
+        this.password = passwd;
         this.age = age;
         this.salary = salary;
         this.sex = sex;
         this.status = status;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", passwd='" + passwd + '\'' +
-                ", age=" + age +
-                ", salary=" + salary +
-                ", sex='" + sex + '\'' +
-                ", status=" + status +
-                '}';
     }
 
     public User() {
@@ -73,54 +65,23 @@ public class User implements Comparable<User> {
 
     public User(String username, String passwd, Integer age, Integer salary, String sex) {
         this.username = username;
-        this.passwd = passwd;
+        this.password = passwd;
         this.age = age;
         this.salary = salary;
         this.sex = sex;
     }
 
 
-    @Override
-    public int hashCode() {
-        return 1 * username.hashCode() + 2 * passwd.hashCode();
+    @TableField(exist = false)
+    private DetailInfo data;
+
+    @Transient
+    public DetailInfo getData() {
+        return data;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        //自反性
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof User)) {
-            return false;
-        }
-        User user = (User) o;
-        return Objects.equals(username, user.username);
-
-    }
-
-    public Integer getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Integer salary) {
-        this.salary = salary;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPasswd() {
-        return passwd;
-    }
-
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
+    public void setData(DetailInfo data) {
+        this.data = data;
     }
 
     public Integer getAge() {
@@ -131,20 +92,49 @@ public class User implements Comparable<User> {
         this.age = age;
     }
 
+    public Integer getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Integer salary) {
+        this.salary = salary;
+    }
+
     public String getSex() {
         return sex;
     }
 
     public void setSex(String sex) {
-        if ("man".equals(sex) || "woman".equals(sex)) {
-            this.sex = sex;
-        } else {
-            try {
-                throw new GenderException("请输入man or woman");
-            } catch (GenderException e) {
-                e.printStackTrace();
-            }
-        }
+        this.sex = sex;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                ", sex='" + sex + '\'' +
+                ", status=" + status +
+                ", data=" + data +
+                '}';
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

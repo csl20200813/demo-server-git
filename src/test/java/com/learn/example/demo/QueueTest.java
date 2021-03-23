@@ -1,9 +1,8 @@
 package com.learn.example.demo;
 
-import com.learn.example.service.QueueService;
+import com.learn.example.service.impl.QueueService;
 import com.learn.example.util.SpringUtils;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class QueueTest {
 

@@ -1,15 +1,13 @@
 package com.learn.example.entity;
 
-import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
 
 /**
  * @author csl
  */
 
-@Entity
-@Table(name = "cate_tree")
+//@Entity
+//@Table(name = "cate_tree")
 public class CateTree {
 
 
@@ -23,18 +21,19 @@ public class CateTree {
         return super.equals(obj);
     }
 
-    @Column(name = "cate_name")
+//    @Column(name = "cate_name")
     private String cateName;
-    @Id
-    @Column(name = "cid")
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
+
+//    @Id
+//    @Column(name = "cid")
+//    @GeneratedValue(strategy = GenerationType.AUTO, generator = "system-uuid")
+//    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String cid;
 
-    @Column(name = "pid")
+//    @Column(name = "pid")
     private String pid;
 
-    @Column(name = "modify_time")
+//    @Column(name = "modify_time")
     private Long modifyTime;
 
  

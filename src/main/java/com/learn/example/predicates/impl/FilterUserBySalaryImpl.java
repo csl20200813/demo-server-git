@@ -12,6 +12,7 @@ import com.learn.example.predicates.MyPredicate;
 public class FilterUserBySalaryImpl implements MyPredicate<User> {
     @Override
     public boolean test(User user) {
-        return user.getSalary() > 2000;
+//        return user.getSalary() > 2000;
+        return  false;
     }
 }
